@@ -16,3 +16,8 @@
 6) in terminal => sudo apt-get install subversion
 7) in terminal => npm install -g opspark
 8) in terminal => os install
+
+## Most recent problems
+
+OS test with the portfolio and website is
+"Portfolio "before each" hook for "should have <head> tag"
