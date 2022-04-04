@@ -2,12 +2,76 @@
 <html>
     <head>
       <title>Sidneys cool website for cool people</title>
+      <style>
+        body {
+            background: rgb(201, 197, 189);
+            color: rgb(45, 45, 45);
+            padding: 10px;
+            font-family: arial;
+        }
+        #all-contents {
+            max-width: 800px;
+            margin: auto;
+        }
+    
+        /* navigation menu */
+        nav {
+            background: rgb(41, 166, 239);
+            margin: 0 auto;
+            display: flex;
+            padding: 10px;
+        }
+        nav h1 {
+            display: flex;
+            align-items: center;
+            color: white;
+            flex: 1;
+            margin: 0;
+        }
+        nav ul {
+            list-style-image: none;
+        }
+        nav li {
+            display: inline-block;
+            padding: 0 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+    
+        /* main container area beneath menu */
+        main {
+            background: rgb(245, 238, 219);
+            display: flex;
+        }
+        .sidebar {
+            margin-right: 25px;
+            padding: 10px;
+        }
+        .sidebar img {
+            width: 200px;
+        }
+        .content {
+            flex: 1;
+            padding: 15px;
+        }
+        h2, h3 {
+            margin: 0px;
+        }
+    </style>
     </head>
     
     <body>
         <div id="all-contents"> 
             <nav>
-    
+                <h1>Sidneys cool website for cool people</h1>
+                <ul>
+                    <li>
+                        <a href="index.html"> home</a>
+                        <a href="portfolio.html" > portfolio</a>
+                    </li>
+                </ul>
             </nav>
     
             <main>
