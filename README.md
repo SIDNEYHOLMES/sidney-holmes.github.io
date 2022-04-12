@@ -18,6 +18,9 @@
 8) in terminal => os install
 
 ## Most recent problems
-
 OS test with the portfolio and website is
 "Portfolio "before each" hook for "should have <head> tag"
+
+fizzBuzz does not work for some unknown reason
+
+printObjectValuesInReverse() just dosent work either for some unknown reason
