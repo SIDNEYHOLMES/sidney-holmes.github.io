@@ -31,7 +31,7 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-  
+    return value != null && value.constructor.name === "Object"
     
     
     // YOUR CODE ABOVE HERE //
@@ -45,7 +45,7 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
+    return value != null && value.constructor.name === 'Object' || value != null && Array.isArray(value); 
     
     
     
@@ -73,10 +73,7 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+
     // YOUR CODE ABOVE HERE //
 }
 

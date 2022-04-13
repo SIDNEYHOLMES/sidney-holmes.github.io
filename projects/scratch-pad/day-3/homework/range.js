@@ -23,8 +23,21 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
-    
-    
+    // new arrary to hold our numbers
+    var arr = [];
+    // if start is less then end that means we need to increment and push it into our new array
+    if (start < end) {
+    for (var i = start; i <= end; i++) {
+        arr.push(i)
+    }
+}
+// if start is more then end that means we need to decreament and push it into out new array
+ else {
+    for (var j = start; j >= end; j--) {
+        arr.push(j)
+    }
+}
+    return arr
     
     
     // YOUR CODE GOES ABOVE HERE //
