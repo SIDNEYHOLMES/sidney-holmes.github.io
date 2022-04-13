@@ -116,12 +116,9 @@ function getObjectLength(object) {
  */
 function printObjectValuesInReverse(object) {
   // YOUR CODE BELOW HERE //
-  var arr = [];
-for (var key in object) {
-  arr.push(object[key])
-}
-  var reverse = arr.reverse()
-  console.log(reverse)
+  for (var key in object) {
+    console.log(object[key])
+  }
   
   // tested in replit. it logs the keys in reverse
   // tested with the values and still no work
