@@ -73,7 +73,28 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
+    //array filter
+    if (Array.isArray(value)) {
+       return "array"
 
+    }
+    //string filter
+    else if (typeof(value) === "string") {
+        return "string"
+    }
+    //null filter
+    else if (typeof(value) === "object" && value == null) {
+        return "null"
+    }
+    else if (typeof(value) === "number") {
+        return "number"
+    }
+    else if (value instanceof Date) {
+        return "date"
+    }
+    else if (typeof(value) === "function") {
+        return "function"
+    }
     // YOUR CODE ABOVE HERE //
 }
 
