@@ -18,9 +18,8 @@
 8) in terminal => os install
 
 ## Most recent problems
-OS test with the portfolio and website is
-"Portfolio "before each" hook for "should have <head> tag"
+ran os test on scratch pad result( Failure running tests \n Failure displaying results \n Error: Error: Error: Cannot find module '../day-1/my-first-test' )
 
-fizzBuzz does not work for some unknown reason
+ran os test on First Website result( 1) First Website "before each" hook for "should have <head> tag" )
 
-printObjectValuesInReverse() just dosent work either for some unknown reason
+ran os test on Portfolio-Page result ( 1) Uncaught error outside test suite \n > > > listen EADDRINUSE: address already in use :::7777)
