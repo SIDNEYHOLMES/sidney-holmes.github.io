@@ -86,12 +86,15 @@ function typeOf(value) {
     else if (typeof(value) === "object" && value == null) {
         return "null"
     }
+    //number filter
     else if (typeof(value) === "number") {
         return "number"
     }
+    //date filter
     else if (value instanceof Date) {
         return "date"
     }
+    //function filter
     else if (typeof(value) === "function") {
         return "function"
     }

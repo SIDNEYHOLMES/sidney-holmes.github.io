@@ -15,7 +15,7 @@ var animal = {};
 animal.species = "k9";
 animal["name"] = "taco";
 animal.noises = [];
-console.log(animal);
+//console.log(animal);
 
 
 //////////////////////////////////////////////////////////////////////
@@ -32,7 +32,7 @@ noises[noises.length] = "work"
 //////////////////////////////////////////////////////////////////////
 animal["noises"] = noises;
 animal.noises.push("42 the meaning of life");
-console.log(animal);
+//console.log(animal);
 
 
 /* *******************************************************************
@@ -59,13 +59,29 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+var animals = [];
+animals.push(animal);
+///console.log(animals)
+var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] }
+animals.push(duck);
+//console.log(animals)
+var crocadile = { species: "crocadile", name: "gustav", noises: ["hiss", "roar", "snap"]};
+var rhino = { species: "rhinoserus", name: "charlie", noises: ["chaarge", "stomp", "nose"]};
+animals.push(crocadile);
+animals.push(rhino)
+//console.log(animals)
+//console.log(animals.length)
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+var friends = [] // i chose an array to create my list of friends.
+function getRandom(animals) {
+ var randomIndex = Math.floor(Math.random() * animals.length)
+  return animals[randomIndex]
+}
+friends.push(getRandom(animals).name)
+//console.log(friends);
+animals[0].friends = friends;
 
 
 /**
