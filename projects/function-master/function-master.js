@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+    return Object.values(object)
 
 } 
 
@@ -11,7 +12,8 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-
+   var test = Object.keys(object)
+   return test.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -19,7 +21,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    var arr = []
+    for (var key in object) {
+        if (typeof(object[key]) === "string") {
+            arr.push(object[key])
+        }
+    }
+    return arr.join(" ")
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -27,7 +35,12 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    
+    if (Array.isArray(collection) === true) {
+        return "array"
+    } else {
+        return "object"
+    }
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -35,7 +48,8 @@ function arrayOrObject(collection) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeWord(string) {
-    
+     return string.charAt(0).toUpperCase() + string.slice(1);
+     
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -43,15 +57,19 @@ function capitalizeWord(string) {
 //////////////////////////////////////////////////////////////////////
 
 function capitalizeAllWords(string) {
-    
-}
+    var separatedString = string.toLowerCase().split(" ");
+    for (var i = 0; i < separatedString.length; i++) {
+        separatedString[i] = separatedString[i].charAt(0).toUpperCase() + separatedString[i].substring(1);
+    }
+    return separatedString.join(" ");
+};
 
 //////////////////////////////////////////////////////////////////////
 // Function 7 - Welcome Message //////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-
+    return `Welcome ${capitalizeWord(object.name)}!`
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -59,7 +77,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+return `${capitalizeWord(object.name)} is a ${capitalizeWord(object.species)}`;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -67,7 +85,9 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-
+    if (object.hasOwnProperty("noises") === true && object.noises.length > 0) {
+        return object.noises.join(" ")
+    } else {return "there are no noises"}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -75,7 +95,13 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    var split = string.split(" ")
+    for (var i = 0; i < split.length; i++) {
+        if (split[i] === word) {
+            return true
+        }
+    }
+    return false
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -83,7 +109,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+object.friends.push(name)
+return object
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +118,12 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    if (object.hasOwnProperty("friends") === true) {
+        for (var i = 0; i < object.friends.length; i++)
+            if (object.friends[i] === name) {
+            return true
+    }}
+    return false
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -99,15 +131,35 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    var nameList = [];
+    var result = [];
+    var current = null;
+    for(var i=0; i<array.length; i++){
+        if(name === array[i].name){
+            current = array[i];
+        }else{
+            nameList.push(array[i].name);
+        }
+    }
+    if(current === null){
+        return nameList;
+    }
+    for(var i=0; i<nameList.length; i++){
+        if(current.friends.indexOf(nameList[i]) == -1){
+            result.push(nameList[i]);
+        }
+    }
+    return result;
 }
+
 
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+return object.hasOwnProperty(key) === true ? object["key"] = value : Object.assign(object, {key: value})
+  
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +167,10 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (var i = 0; i < array.length; i++) {
+if (object.hasOwnProperty(array[i]) === true) {
+    delete object[array[i]]
+}}
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -123,7 +178,13 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+var arr =[]
+for (var i = 0; i < array.length; i++) {
+    if (arr.indexOf(array[i]) === -1) {
+        arr.push(array[i])
+    }
+}
+return arr
 }
 
 //////////////////////////////////////////////////////////////////////

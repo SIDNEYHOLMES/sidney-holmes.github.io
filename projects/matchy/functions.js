@@ -52,9 +52,9 @@ function remove (animals, name) {
 function add (animals, animal) {
     for(var i = 0; i < animals.length; i++) {
     if (animal.name.length > 0 && animal.species.length > 0) {
-            if (animals[i].name !== animalname) {
-                animals.push(animal)
-            }
+            if (animals[i].name !== animal.name) {
+                return animals.push(animal)
+            } 
         }
     }
 }
