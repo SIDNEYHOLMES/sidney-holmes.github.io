@@ -158,7 +158,8 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-return object.hasOwnProperty(key) === true ? object["key"] = value : Object.assign(object, {key: value})
+object[key] = value;
+return object
   
 }
 

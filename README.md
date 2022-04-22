@@ -23,3 +23,7 @@ ran os test on scratch pad result( Failure running tests \n Failure displaying r
 ran os test on First Website result( 1) First Website "before each" hook for "should have <head> tag" )
 
 ran os test on Portfolio-Page result ( 1) Uncaught error outside test suite \n > > > listen EADDRINUSE: address already in use :::7777)
+
+ran os test on Matchy result ( failure running tests \n failure displaying results \n Error: Error: Error: cannot find module '../data'
+
+ran os test on Function-Master result ( failure running tests \n failure displaying results \n Error: Error: Error: Cannot find module '../function-master'
