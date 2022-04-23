@@ -32,13 +32,15 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-  var a = " # # # #"
-  var b = "# # # # "
-  for (var i = 0; i < 4; i++) {
-    console.log(a)
-    console.log(b)
-  }
+function drawChessboard(input) {
+  var output = "";
+for(var i = 0; i < input; i++){
+ for(var j = 0; j < input; j++){
+  output += (i + j) %  2 === 0 ? " " : "#";
+ }
+ output += "\n";
+}
+return console.log(output)
 }
 
 ////////////////////////////////////////////////////////////////////////////////
