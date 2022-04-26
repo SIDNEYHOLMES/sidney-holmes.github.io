@@ -17,6 +17,18 @@
 7) in terminal => npm install -g opspark
 8) in terminal => os install
 
+# How to Access Lodown Director
+1) go to file > open file > make search bar look like this: /workspace/
+2) select lodown
+3) select index.js
+
+# how to push to lodown
+1) in terminal > cd ..
+2) in terminal > cd lodown
+3) in terminal > git add -A
+4) in terminal git commit -m "descripting"
+5) in terminal git  push 
+
 ## Most recent problems
 ran os test on scratch pad result( Failure running tests \n Failure displaying results \n Error: Error: Error: Cannot find module '../day-1/my-first-test' )
 
