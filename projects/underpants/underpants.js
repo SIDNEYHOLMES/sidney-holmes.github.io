@@ -321,7 +321,22 @@ _.partition = function (array, test) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
-
+_.map = function (collection, test) {
+    var arr = [];
+    if (Array.isArray(collection) === true) {
+        for (var i = 0; i < collection.length; i++) {
+            var result = test(collection[i], i, collection)
+            arr.push(result)
+        }
+    } else {
+        for (var key in collection) {
+            var result = test(collection[key], key, collection)
+            arr.push(result)
+            }
+        }
+    
+    return arr
+}
 
 /** _.pluck
 * Arguments:
@@ -333,7 +348,9 @@ _.partition = function (array, test) {
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
-
+_.pluck = function (array, prop) {
+    return _.map(array, function(obj) {return obj[prop]})
+}
 
 /** _.every
 * Arguments:
@@ -355,7 +372,34 @@ _.partition = function (array, test) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function (collection, test) {
+    if (test === undefined) {
+        if (Array.isArray(collection)) {
+            for (var i = 0; i < collection.length; i++) {
+                if (!collection[i]) {
+                    return false;
+                }
+            }
+        } else {
+            for (var key in collection) {
+                if (!collection[key]) {
+                    return false;
+                }
+            }
+        }
+    } else {
+        if (Array.isArray(collection)) {
+            for (var i = 0; i < collection.length; i++) {
+                if (test(collection[i], i, collection) === false) {
+                    return false
+                }
+            }
+        }
+    }
+    return true;
+}
 
+    
 
 /** _.some
 * Arguments:
