@@ -44,27 +44,35 @@ _.identity = function (value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 _.typeOf = function(value) {
+    // if value is string return string
     if (typeof(value) === "string") {
         return "string";
     }
+    // if value is number return number
     else if (typeof(value) === "number") {
         return "number";
     }
+    // if value is boolean return boolean
     else if (typeof(value) === "boolean") {
         return "boolean"
     }
+    // if value is array return array
     else if (Array.isArray(value) === true) {
         return "array"
     }
+    // if value is object return object
     else if (Array.isArray(value) === false && typeof(value) === "object" && value != null) {
         return "object"
     }
+    // if value is undefined return undefined
     else if (typeof(value) === "undefined") {
         return "undefined"
     }
+    // if value is function return function
     else if (typeof(value) === "function") {
         return "function"
     } 
+    // if value is null return null
     else if (typeof(value) === "object" && value == null) {
         return "null"
     }
@@ -421,7 +429,45 @@ _.every = function (collection, test) {
 *   _.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
-
+_.some = function (collection, test) {
+    // if test is undefined check if collection is an array or an object
+    if (test === undefined) {
+            // if it is an array check if any of the values equal truthy. if so return true
+        if (_.typeOf(collection) === "array") {
+            for (var i = 0; i < collection.length; i++) {
+                // else return false
+                if (collection[i]) {
+                    return true;
+                }
+            }
+        } else {
+            // if it is an object check if any values equal truthy. if so return true
+            for (var key in collection) {
+                // else return false
+                if (collection[key]) {
+                    return true;
+                } 
+            }
+        }
+    }
+    // if function dosent equal undefined 
+    else {
+        if (_.typeOf(collection) === "array") {
+            for (var i = 0; i < collection.length; i++) {
+                if (test(collection[i], i, collection) === true) {
+                    return true
+                }
+            }
+        } else {
+            for(var key in collection) {
+                if (test(collection[key], key, collection) === true) {
+                    return true
+                }
+            }
+        }
+    } 
+   return false
+}
 
 /** _.reduce
 * Arguments:
@@ -441,8 +487,25 @@ _.every = function (collection, test) {
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-
-
+_.reduce = function (array, func, seed) {
+    // determin if seed has a value
+    if (seed === undefined) {
+        // assing seed to the first index in the array
+        seed = array[0];
+        // loop through the array;
+        for (var i = 1; i < array.length; i++) {
+            //reassing seed to the result of calling the input function on the current
+            //value of seed, current index, and collection
+            seed = func(seed, array[i], i, array);
+        }
+    } else {
+        for (var i = 0; i < array.length; i++) {
+            seed = func(seed, array[i], i, array)
+        }
+    }
+    return seed;
+}
+ 
 /** _.extend
 * Arguments:
 *   1) An Object
@@ -457,7 +520,12 @@ _.every = function (collection, test) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-
+_.extend = function (obj1, obj2, obj3) {
+    if (obj3 !== undefined) {
+        return Object.assign(obj1, obj2, obj3)
+    }
+    return Object.assign(obj1, obj2)
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
