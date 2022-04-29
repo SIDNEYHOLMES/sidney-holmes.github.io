@@ -41,29 +41,41 @@ var femaleCount = function(array) {
 };
 
 var oldestCustomer = function(array) {
+    var name = ""
     const old = _.reduce(array, function(acc, current, index, collection) {
-        // if current age is higher then accumulator.
         if (current.age > acc) {
-            // accumulator is now that age
             acc = current.age
         }
-        return acc
+        
     }, 0)
-    const name = _.filter(array, function(customers) {
-        if (customers.age === old) {
-            return customers.name
-        }
-    })
-      return name
+        return old
 };
 
 var youngestCustomer;
 
-var averageBalance;
+var averageBalance = function(array) {
+    var result = _.filter(array, function(customers) {
+        if (customers.balance > 1) {
+            return true
+        } else {return false}
+    })
+    return result / result.length
+};
 
-var firstLetterCount;
+var firstLetterCount = function(array, letter) {
+    var count = _.filter(array, function(customers) {
+        if (customers.name.charAt(0).toUpperCase() === letter|| customers.name.charAt(0).toLowerCase() === letter) {
+            return true
+        } else {
+            return false
+        }
+    });
+    return count.length
+};
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter) {
+    
+};
 
 var friendsCount;
 
