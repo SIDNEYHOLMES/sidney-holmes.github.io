@@ -29,6 +29,10 @@
 4) in terminal git commit -m "descripting"
 5) in terminal git  push 
 
+## How to Test Let's Get Functional
+1) cd into workspace > cd ..
+2) copy code press enter > npm start --prefix ./sidney-holmes.github.io/projects/let-s-get-functional
+
 ## Most recent problems
 ran os test on scratch pad result( Failure running tests \n Failure displaying results \n Error: Error: Error: Cannot find module '../day-1/my-first-test' )
 
