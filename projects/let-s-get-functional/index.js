@@ -20,7 +20,7 @@ var _ = require("underbar");
  *
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
-
+//done
 var maleCount = function(array) {
     var male = _.filter(array, function(customers) {
         if (customers.gender === "male") {
@@ -30,6 +30,7 @@ var maleCount = function(array) {
     return male.length
 };
 
+//done
 var femaleCount = function(array) {
     var female = _.reduce(array, function(accumulator, current, index, collection) {
         if (current.gender === "female") {
@@ -55,13 +56,13 @@ var youngestCustomer;
 
 var averageBalance = function(array) {
     var result = _.filter(array, function(customers) {
-        if (customers.balance > 1) {
+        if (customers.balance >=  1) {
             return true
         } else {return false}
     })
     return result / result.length
 };
-
+//done
 var firstLetterCount = function(array, letter) {
     var count = _.filter(array, function(customers) {
         if (customers.name.charAt(0).toUpperCase() === letter|| customers.name.charAt(0).toLowerCase() === letter) {
@@ -77,11 +78,37 @@ var friendFirstLetterCount = function(array, customer, letter) {
     
 };
 
-var friendsCount;
+var friendsCount = function(array, name) {
+        var friend = _.map(array, function(customer){
+            if(customer.friends.name === name) {
+                return customer.name
+            } 
+        })
+        return friend.name;
+        
+};
 
 var topThreeTags;
 
-var genderCount;
+// done
+var genderCount = function (array) {
+    var obj = {}
+
+    var nonCount = function() {
+        var non = _.filter(array, function(customers) {
+        if (customers.gender === "non-binary") {
+            return true;
+        } else {return false};
+    })
+    return non.length
+    }
+
+    obj.male = maleCount(array);
+    obj.female = femaleCount(array);
+    obj["non-binary"] = nonCount(array);
+    
+    return obj
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
