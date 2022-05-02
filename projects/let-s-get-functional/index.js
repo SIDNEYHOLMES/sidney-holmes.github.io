@@ -42,25 +42,42 @@ var femaleCount = function(array) {
 };
 
 var oldestCustomer = function(array) {
-    var name = ""
-    const old = _.reduce(array, function(acc, current, index, collection) {
-        if (current.age > acc) {
-            acc = current.age
-        }
-        
+    var arr = []
+    const old = _.reduce(array, function(acc, current, index, customers) {
+        var filt = _.filter(array, function(customers) {
+            if (current.age !== undefined) {
+                arr.push({age: current.age, name: current.name})
+            }
+            
+        })
+        return filt
     }, 0)
-        return old
+    const result = _.reduce(arr, acc, current => acc = acc > current.age ? current.name : acc, 0)
+    console.log(arr)
+    return old
 };
-
+//shots.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
 var youngestCustomer;
 
+//done
 var averageBalance = function(array) {
-    var result = _.filter(array, function(customers) {
-        if (customers.balance >=  1) {
-            return true
-        } else {return false}
+    // this array will store all of the customers balance strings
+    var arr = []
+    // if customers balance is not undefined push it to our new array
+    var balance = _.filter(array, function(customers) {
+         if (customers.balance !== undefined) {
+            arr.push(customers.balance)
+        }
     })
-    return result / result.length
+    // remove the $ from the begining of the string
+    var sign_removal = _.map(arr, (s) => {return s.slice(1)});
+    // remove the comma in the string
+    var comma_removal = _.map(sign_removal, (c) => { return c.replace(/,/g, "")})
+    // turn everything into a number 
+var number = _.map(comma_removal, (b) => {return Number(b)})
+
+var result = _.reduce(number, (a,b) => (a + b)) / number.length; 
+    return result
 };
 //done
 var firstLetterCount = function(array, letter) {
@@ -74,18 +91,29 @@ var firstLetterCount = function(array, letter) {
     return count.length
 };
 
+//done
 var friendFirstLetterCount = function(array, customer, letter) {
-    
+    // empty friend array that will store all of the friends of the person we are looking into
+    var friend = []
+    // if customer is the customer we are looking for push all there friends into friend array
+    var filt = _.filter(array, function(customers) {
+       if (customers.name === customer) {
+          friend = customers.friends
+       }
+    })
+    // if the first character of any of the names in friend is euqal to letter. accumulator ++
+    var result = _.reduce(friend, function(accumulator, current, index, collection) {
+        if (current.name.charAt(0) === letter.toLowerCase() || current.name.charAt(0) === letter.toUpperCase()) {
+            accumulator++
+    }
+    // return the amount of friends with the letter as the first character in name
+    return accumulator
+}, 0)
+    return result
 };
 
 var friendsCount = function(array, name) {
-        var friend = _.map(array, function(customer){
-            if(customer.friends.name === name) {
-                return customer.name
-            } 
-        })
-        return friend.name;
-        
+    
 };
 
 var topThreeTags;
