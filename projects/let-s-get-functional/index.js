@@ -56,7 +56,7 @@ var oldestCustomer = function(array) {
     console.log(arr)
     return old
 };
-//shots.reduce((acc, shot) => acc = acc > shot.amount ? acc : shot.amount, 0);
+
 var youngestCustomer;
 
 //done
