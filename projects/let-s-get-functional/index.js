@@ -40,24 +40,28 @@ var femaleCount = function(array) {
     }, 0)
     return female;
 };
-
+//done
 var oldestCustomer = function(array) {
-    var arr = []
-    const old = _.reduce(array, function(acc, current, index, customers) {
-        var filt = _.filter(array, function(customers) {
-            if (current.age !== undefined) {
-                arr.push({age: current.age, name: current.name})
-            }
-            
-        })
-        return filt
-    }, 0)
-    const result = _.reduce(arr, acc, current => acc = acc > current.age ? current.name : acc, 0)
-    console.log(arr)
-    return old
+    var old = array.reduce(function(accumulator, current) {
+        if (accumulator.age > current.age) {
+            return accumulator
+        } else {
+            return current;
+        }
+    })
+    return old.name
 };
-
-var youngestCustomer;
+//done
+var youngestCustomer = function(array) {
+    var young = array.reduce(function(accumulator, current) {
+        if (accumulator.age < current.age) {
+            return accumulator;
+        } else {
+            return current;
+        }
+    });
+    return young.name
+};
 
 //done
 var averageBalance = function(array) {
@@ -116,7 +120,27 @@ var friendsCount = function(array, name) {
     
 };
 
-var topThreeTags;
+//done
+var topThreeTags = function(array) {
+    var output = []
+    var obj = {}
+    // takes all of the tages and gives them a int representing how many times they were in a customers tag array
+    var map = _.map(array, function(customers) {
+        customers.tags.map(function(tag) {
+            obj[tag] = (obj[tag] || 0) + 1
+        })
+    });
+    // sorts the integer and tags and puts them into obj
+    var sorted = Object.keys(obj).map(s => [s, obj[s] ]).sort( (a, b) => a[1] - b[1]);
+    // removes tags that have low numbers
+    var top = sorted.slice(-4)
+    // pushes the top 3 tags into output
+    var result = _.reduce(top, function(acc, current) {
+        output.push(current[0])
+    }) 
+return output
+    }
+    
 
 // done
 var genderCount = function (array) {
