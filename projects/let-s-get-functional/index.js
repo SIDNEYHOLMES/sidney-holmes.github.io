@@ -4,6 +4,7 @@
 
 var customers = require('./data/customers.json');
 var _ = require("underbar");
+const { arraySum } = require('../recursion-practice/src/recursion');
 
 /**
  * 1. Import your lodown module using the require() method,
@@ -117,7 +118,19 @@ var friendFirstLetterCount = function(array, customer, letter) {
 };
 
 var friendsCount = function(array, name) {
-    
+    // creates an array with the name property and friends array of all customers
+    var output = []
+    var map = _.map(array, function (customers) {
+        var fri = customers.friends
+        return [customers.name, _.pluck(fri, 'name')]
+    })
+    // if friends.name === name return customer.name
+    var filt = _.filter(map, function (person) {
+        if (person[1].find(e => e === name)) {
+            output.push(person[0])
+        }
+    })
+    return output
 };
 
 //done
@@ -147,19 +160,20 @@ var genderCount = function (array) {
     var obj = {}
 
     var nonCount = function() {
-        var non = _.filter(array, function(customers) {
-        if (customers.gender === "non-binary") {
-            return true;
-        } else {return false};
-    })
-    return non.length
+        var non = _.reduce(array, function(accumulator, current) {
+        if (current.gender === "non-binary") {
+            accumulator++
+        } 
+         return accumulator;
+    }, 0)
+    return non
     }
 
     obj.male = maleCount(array);
     obj.female = femaleCount(array);
     obj["non-binary"] = nonCount(array);
     
-    return obj
+    return obj;
 };
 
 //////////////////////////////////////////////////////////////////////
