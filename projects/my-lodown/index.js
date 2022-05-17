@@ -6,7 +6,7 @@
 /**
  * identity: function takes in any value and returns that value unchanged
  * @param {value} value: the value can be anything from a string to an object
- * but not matter what it is, it will be returned unchanged
+    @return {value} function returns the value parameter unchanged
 
     Example: identity("heat") 
         -> should return "heat"
@@ -23,7 +23,8 @@ module.exports.identity = identity
  * typeOf: function will take in a value and return the datatype of that value
  * 
  * @param {value} value: the value can be anything from a string to an object 
- *  and will be checked to see what datatype it is. it will then return the datatype of that value
+ *  and will be checked to see what datatype it is.
+    @return {string} function returns a string representing the values datatype 
  *
  * Example: _.typeOf(1) = "number"
  *          _.typeOf("number") = "string"
@@ -74,7 +75,8 @@ module.exports.typeOf = typeOf
  *
  * @param {array} Array: The array to iterate through to find the element representing the number 
  * @param {number} number: the number will be used to optain the first <number> items of <array>
-    
+    @return {value} function returns the first values in the giving array based off of the number
+
     Example: _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
  */
@@ -102,6 +104,7 @@ module.exports.typeOf = typeOf
  *  Right to left
  * @param {array} Array: The array to iterate through to find the element representing the number 
  * @param {number} number: the number will be used to optain the first <number> items of <array>
+    @return {value} function returns the last elements in the array based off of the number parameter
 
  Example: _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
@@ -130,7 +133,7 @@ module.exports.typeOf = typeOf
  * 
  * @param {array} Array: the array that will be looked through to find the value 
  * @param {value} value: the value that (presumably) will be in the array
-
+    @return {number} function will return the index of the value parameter in the array paramater
     Example: _.indexOf(["a","b","c"], "c") -> 2
 *           _.indexOf(["a","b","c"], "d") -> -1
  */
@@ -151,7 +154,7 @@ module.exports.typeOf = typeOf
  * 
  * @param {array} Array: the array that will be looked through to find the value
  * @param {value} Value: the value that (presumably) will be in the array
-
+    @return {boolean} function will return true or false depending on if the value parameter is in the array parameter
     Example: _.contains([1,"two", 3.14], "two") -> true
             _.contains([1,"two", 3.14], "three") -> false
  */         
@@ -165,8 +168,8 @@ module.exports.typeOf = typeOf
 /**
     unique: function will remove all duplicates from the array paramter and return the array
  * 
- * @param {array} Array: the array will contain a list of numbers
- *  
+ * @param {array} Array: the array will contain a list of values
+ *  @return {array} function returns the array parameter with all duplicate values removed
     Example: _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
  */
     function unique(array) {
@@ -187,7 +190,7 @@ module.exports.typeOf = typeOf
      * 
      * @param {array} Array: an array filled with values that will be tested with the test function
      * @param {test}  Function: the test parameter is a function that will used on each array value
-
+        @return {array} function returns an array of values that passed the filter function
         Example: _.filter([1,2,3,4,5], function(x){return x%2 === 0}) -> [2,4]
      */
      function filter(array, test) {
@@ -209,7 +212,7 @@ module.exports.typeOf = typeOf
       * 
       * @param {array} array: an array filled with values that will be tested with the test function
       * @param {test} function: test is a function that will be used on each array value and return all values that fail
-
+        @return {array} function returns an array of all the values that failed the reject function
         Example: _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
       */
       function reject(array, test) {
@@ -231,7 +234,7 @@ module.exports.reject = reject
  * 
  * @param {array} Array: an array filled with value that will be tested on with the test function
  * @param {test} Function: test is a function that will be used on each value of the array parameter
-
+    @return {array} function returns a nested array with one array being values that passed the partition function and those who failed
     Example: _.partition([1,2,3,4,5], function(element,index,arr){
 *               return element % 2 === 0;
 *                  }); -> [[2,4],[1,3,5]]
@@ -255,7 +258,7 @@ module.exports.partition = partition
  * 
  * @param {collection} array/object: this object/array will be iterated through and each value will be called with the test function
  * @param {test} function: this function will be called on each element in the array
-
+    @return {array} function returns the collection parameter with all values passed through the map function
   Example: _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
  */
   function map(collection, test) {
@@ -283,7 +286,7 @@ module.exports.map = map;
  * 
  * @param {array} array: the array is filled with objects
  * @param {prop} key: prop is the name of a object key 
-
+    @return {array} function returns an array of all object values that have the prop parameter as its key in the array parameter 
   Example:_.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
  */
 function pluck(array, prop) {
@@ -299,7 +302,7 @@ module.exports.pluck = pluck
  * 
  * @param {collection} array/object: a collection that will be iterated through
  * @param {test} function: the function will be called on each array value in the collection
-
+    @return {boolean} function returns true or false depending on if all collection values pass the test function or not
     Example:
      _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
@@ -340,7 +343,7 @@ module.exports.every = every
  * 
  * @param {collection} array/object: the array/object that will be iterated through
  * @param {test} function: the function will be called on each array value in the collection
-
+    @return {boolean} function returns true or false depending on if some of the values in the collections parameter pass the test function
     Example:_.some([1,3,5], function(e){return e % 2 === 0}) -> false
 *       _.some([1,2,3], function(e){return e % 2 === 0}) -> true
  */
@@ -394,7 +397,7 @@ module.exports.some = some
  * @param {array} array: the array that will be iterated through  
  * @param {func} function: the function will be called on each array value
  * @param {seed} seed: the seed is the value that will be returned to complete the reduce function
-    
+    @return {value} function returns a value depending on the func parameter that was given to it to the array
     Example: _.reduce([1,2,3], function(previousSum, currentValue, currentIndex)
             { return previousSum + currentValue }, 0) -> 6
  */
@@ -423,10 +426,10 @@ module.exports.reduce = reduce
 /**
  * exstend: function will add key value pairs to already exsisting objects
  * 
- * @param {obj1} an object
+ * @param {obj1} the target object that will have object key-value pairs added to it
  * @param {obj2} a key-value pair that will be added to obj1
- * @param {obj3} a key-value pair that may or may not be added depending on if it is assigned
- * 
+ * @param {obj3} obj3 represents any number of objects that can be added to the target object after obj2
+ * @return {object} function returns obj1 with all other object parameters added to it. with duplicate keys changing values
  * Example: var data = {a:"one"};
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
@@ -447,8 +450,8 @@ module.exports.reduce = reduce
  * action Function to each value in the collection.
  * 
  * @param {Array or Object} collection: The collection over which to iterate.
- * @param {Function} action: The Function to be applied to each value in the 
- * collection
+ * @param {Function} action: The Function to be applied to each value in the collection
+    @return {value} function returns each value from the array or object paramter with it passed through the function
     Examples:
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
