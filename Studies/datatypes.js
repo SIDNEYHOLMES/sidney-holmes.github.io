@@ -26,4 +26,14 @@
  * 
  * Null
  * var nul = null 
+ *
+ * NaN
+ * var not_number = NaN
+ *
+ *infinity
+ *
+ *
+ *
+ *
+ *
  */

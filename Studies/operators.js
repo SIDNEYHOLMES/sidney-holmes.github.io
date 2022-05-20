@@ -45,8 +45,8 @@ OPERATORS
     < | less than
     >= | greater or equal to
     <= | less than or equal to
-    ? | ternery operator (ternery operator is like a more concise if statment)
-
+    ? | ternery operator (example: a < b ? a : b)
+                  // if a is less than b return a else return b
 
 
     Logical Operator

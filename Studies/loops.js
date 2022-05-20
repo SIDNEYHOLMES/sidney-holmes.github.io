@@ -8,16 +8,52 @@ LOOPS
 
 
 For Loops
+  for loops define a condition and when that condition is false the loop will end.
+  the for loop is syntax is made of 3 sections the start,stop and update. 
 
-    for loops reapeat until a specific condition is met. in this case if i is equal to the length of the array
-    var arr = [1, 2, 3]
-    for (var i = 0; i < array.length; i++) {
-        console.log(array[i])
-    }
-    // 1
-    // 2
-    // 3
+  for(start; stop; update) {code to run}
  
+  the start initializes and or declares variables and executes only once
+  the stop is constantly checking each iteration to see if the condition is false.
+  if so the for loop is terminated. else the block of code inside the for loop is executed and a new iteration begins.
+  the update will update the start value at the start of each iteration. this process continues until the stop condition is false
+
+  Ex:
+      var num = 3
+      var arr = [1,2,3,6,5]
+
+// counts up from 0
+for (var i = 0; i <= num; i++) {
+  console.log(i) // logs 0 1 2 3 to the console
+}
+
+// counts down to zero
+for (var i = num; i >= 0; i--) {
+  console.log(i) // logs 3 2 1 0 to the console
+}
+
+// iterates through an array
+for (var i = 0; i < arr.length; i++) {
+  console.log(arr[i]) // logs 1 2 3 6 5 to the console
+}
+
+// iterates through an array backwards
+for (var i = arr.length - 1; i >= 0; i--) {
+  console.log(arr[i]) // logs 5 6 3 2 1 to the console
+}
+
+
+ For In Loop 
+
+ for in statements iterates through the properties of an object
+
+ Ex: 
+  var obj = {name: "sid", age: 17}
+
+ for (var key in obj) {
+  console.log(key, obj[key]) logs // name sid 
+                                  // age 17
+
  Do While loops
 
  do while loops repetes until a certin condition evaluates to false
