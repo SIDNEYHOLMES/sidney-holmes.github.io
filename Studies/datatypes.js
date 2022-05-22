@@ -12,7 +12,8 @@
  * 
  * Boolean         or
  * var bool = true || false
- * a boolean is any two values of true or false. boolean values also come as a result of a comparison in a program
+ * a boolean is any two values of true or false. boolean values also come as a result of a comparison in a program like in the following example.
+ *  if (1 < 10) {return true} else {return false}
  *
  * Object
  * var obj = {Name: "sid", Age: 17}
@@ -39,12 +40,31 @@
  *
  * NaN
  * var not_number = NaN
- * NaN stands for not a number and is another special data type that can be interpreted as a value that is undefined or null
+ * NaN stands for not a number and is a special numeric value that can be interpreted as a value that is undefined or null
  *
  * infinity
+ * console.log(Infinity) // => Infinity
+ * console.log(-Infinity) // => -Infinity
+ * infinity is also a special numeric value that represents positive infinitys while -Infinity represents negative infinitys
  *
+ * Copy by value
+ * let a = "sidney";
+ * let b = a;
  *
- *Coby by value/ copy by reference
+ * when working with primitive data types your variables will be making a copy of the value they're being assigned and represent that specific copy of the value
+ * any changes to the orignal data type will not effect the copy that was made and stored in the variable we've created and vice versa. Ex:
  *
+ * a = undefined
+ * console.log(b) // prints sidney, not effected by a being reassigned
  *
+ * Copy by reference
+ * let a = {name: "sidney", age: 17} 
+ * let b = a;
+ *
+ * when working with complex data types variables will not make a copy of the value they're being assigned, but instead will make a reference to that data
+ * any manipulation of our variable will effect the original data since our variable is just a reference to the original data and vice versa. Ex:
+ *
+ * b.age = 20
+ * console.log(a) // =>  {name: "sidney", age: 20} age is now equal to 20 because b is a reference and changes the orignal value of a
+ * console.log(b) // => {name: "sidney", age: 20} age is 20 because this is the initale value we changed
  */
